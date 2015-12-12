@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ReturnButton : MonoBehaviour {
+public class ReturnButton{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private string key;
+    private float duration;
+
+    public ReturnButton(string _key, float _duration)
+    {
+        key = _key;
+        duration = _duration;
+    }
+
+    public string getKey()
+    {
+        return key;
+    }
+
+    public float getDuration()
+    {
+        return duration;
+    }
 }

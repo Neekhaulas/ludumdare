@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Button : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Button : MonoBehaviour
     public float timeDelay;
     public string number;
     public Animator animation;
-    public Combinaison combinaison;
+    public List<ReturnButton> combinaison;
 
     // Use this for initialization
     void Start()
@@ -44,6 +45,7 @@ public class Button : MonoBehaviour
             isPush = true;
             print("number : " + number);
             animation.Play(0);
+            combinaison.Add(new ReturnButton(number, 0));
         }
     }
 }
