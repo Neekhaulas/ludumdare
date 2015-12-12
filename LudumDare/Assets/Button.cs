@@ -7,11 +7,14 @@ public class Button : MonoBehaviour
     public bool isPush;
     public float timeDelay;
     public string number;
+    public Animator animation;
+    public Combinaison combinaison;
 
     // Use this for initialization
     void Start()
     {
         isPush = false;
+        animation = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,7 +42,8 @@ public class Button : MonoBehaviour
         if (Input.GetKey(number))
         {
             isPush = true;
-            print("number : " + number);    
+            print("number : " + number);
+            animation.Play(0);
         }
     }
 }
