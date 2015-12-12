@@ -4,7 +4,9 @@ using System.Collections;
 public class Button : MonoBehaviour
 {
 
-    private bool isPush;
+    public bool isPush;
+    public float timeDelay;
+    public string number;
 
     // Use this for initialization
     void Start()
@@ -15,15 +17,29 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputHandle();
+        if(isPush)
+        {
+            timeDelay += Time.deltaTime;
+            if (timeDelay >= 1)
+            {
+                timeDelay = 0;
+                isPush = false;
+                inputHandle();
+            }
+        }
+        else
+        {
+            inputHandle();
+        }
+        
     }
 
     void inputHandle()
     {
-        if (Input.GetKey("a"))
+        if (Input.GetKey(number))
         {
-            isPush = !isPush;
-            print("is push");
+            isPush = true;
+            print("number : " + number);    
         }
     }
 }
